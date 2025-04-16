@@ -1,139 +1,178 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Thato Kujwane | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
   <style>
-    /* Basic Reset */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
-
-    a { text-decoration: none; color: #333; }
-    
-    /* Smooth Scrolling */
-    html { scroll-behavior: smooth; }
-
-    /* Animations */
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    .animate { animation: fadeIn 1s ease-out forwards; }
 
-    /* Header & Navigation */
+    body {
+      font-family: 'Roboto', sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+      scroll-behavior: smooth;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
     header {
-      background: #f4f4f4;
-      padding: 20px;
+      background-color: #333;
+      color: #fff;
+      padding: 20px 0;
       position: fixed;
-      width: 100%;
       top: 0;
+      width: 100%;
       z-index: 1000;
-      opacity: 0;
-      animation: fadeIn 1s ease-out forwards;
+      animation: fadeInDown 1s ease-out;
     }
+
     nav {
       display: flex;
       justify-content: center;
+      gap: 20px;
     }
-    nav a {
-      margin: 0 15px;
-      font-weight: bold;
-      transition: color 0.3s;
-    }
-    nav a:hover { color: #007BFF; }
 
-    /* Section Styles */
-    section {
-      padding: 80px 20px;
-      min-height: 100vh;
-      opacity: 0;
-      animation: fadeIn 1s ease-out forwards;
-      animation-delay: 0.3s;
+    nav a {
+      font-weight: bold;
+      color: #fff;
+      transition: color 0.3s ease;
     }
+
+    nav a:hover {
+      color: #00bcd4;
+    }
+
+    section {
+      padding: 100px 20px 60px;
+      min-height: 100vh;
+      animation: fadeInUp 1s ease-out;
+    }
+
     .hero {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      background: #e9ecef;
+      background: linear-gradient(135deg, #007BFF, #00bcd4);
+      color: #fff;
       text-align: center;
     }
-    .hero h1 { font-size: 3rem; margin-bottom: 10px; }
-    .hero p { font-size: 1.2rem; }
 
-    .about, .projects, .skills, .contact {
-      background: #fff;
-    }
     .section-title {
       text-align: center;
+      font-size: 2.5rem;
       margin-bottom: 40px;
-      font-size: 2rem;
       color: #007BFF;
     }
 
-    /* Projects Grid */
+    .about,
+    .skills {
+      background-color: #fff;
+    }
+
+    .projects {
+      background-color: #f0f8ff;
+    }
+
+    .contact {
+      background-color: #e9ffe9;
+    }
+
     .projects-container {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
     }
+
     .project {
-      background: #f4f4f4;
+      background-color: #fff;
       padding: 20px;
-      border-radius: 8px;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .project:hover {
-      transform: scale(1.03);
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    /* Skills List */
+    .project:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    }
+
     .skills-list {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 15px;
     }
+
     .skill-item {
-      background: #007BFF;
+      background-color: #007BFF;
       color: #fff;
       padding: 10px 15px;
-      border-radius: 4px;
+      border-radius: 5px;
+      font-size: 1rem;
     }
 
-    /* Contact Form */
     .contact form {
-      max-width: 500px;
-      margin: 0 auto;
+      max-width: 600px;
+      margin: auto;
       display: flex;
       flex-direction: column;
     }
-    .contact input, .contact textarea {
+
+    .contact input,
+    .contact textarea {
       padding: 10px;
       margin-bottom: 15px;
       border: 1px solid #ccc;
-      border-radius: 4px;
-      font-size: 1rem;
+      border-radius: 5px;
     }
+
     .contact button {
-      background: #007BFF;
-      color: #fff;
+      padding: 12px;
+      background-color: #007BFF;
+      color: white;
       border: none;
-      padding: 10px;
-      border-radius: 4px;
+      border-radius: 5px;
       font-size: 1rem;
       cursor: pointer;
-      transition: background 0.3s;
+      transition: background-color 0.3s ease;
     }
-    .contact button:hover { background: #0056b3; }
+
+    .contact button:hover {
+      background-color: #0056b3;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
   </style>
 </head>
 <body>
 
-  <!-- Fixed Navigation Header -->
-  <header class="animate">
+  <header>
     <nav>
       <a href="#hero">Home</a>
       <a href="#about">About</a>
@@ -143,38 +182,33 @@
     </nav>
   </header>
 
-  <!-- Hero Section -->
-  <section id="hero" class="hero animate" style="animation-delay: 0.5s;">
-    <h1>Thato Kujwane</h1>
-    <p>Emerging Software Engineer &amp; Java Developer</p>
+  <section id="hero" class="hero">
+    <h1 style="font-size: 3rem; margin-bottom: 10px;">Thato Kujwane</h1>
+    <p style="font-size: 1.5rem;">Emerging Software Engineer & Java Developer</p>
   </section>
 
-  <!-- About Section -->
-  <section id="about" class="about animate" style="animation-delay: 0.7s;">
+  <section id="about" class="about">
     <h2 class="section-title">About Me</h2>
-    <div style="max-width: 800px; margin: auto; text-align: center;">
-      <p>I am a motivated software engineer with experience in full-stack development. I create scalable, high-performance applications and thrive on solving complex business challenges.</p>
-    </div>
+    <p style="max-width: 800px; margin: auto; font-size: 1.1rem;">
+      I’m a motivated software engineer specializing in full-stack development. I enjoy solving real-world problems by building scalable and efficient applications using Java, JavaScript, and modern frameworks. I’m passionate about innovation and continuously learning new technologies to stay ahead in the tech world.
+    </p>
   </section>
 
-  <!-- Projects Section -->
-  <section id="projects" class="projects animate" style="animation-delay: 0.9s;">
+  <section id="projects" class="projects">
     <h2 class="section-title">Projects</h2>
     <div class="projects-container">
       <div class="project">
         <h3>Java E-commerce Platform</h3>
-        <p>Designed a scalable online store using Spring Boot and React. Implemented secure payment integrations and agile project management.</p>
+        <p>Built a responsive online store using Spring Boot and React. Integrated secure payment methods and implemented user authentication.</p>
       </div>
       <div class="project">
-        <h3>Full-Stack Dashboard</h3>
-        <p>Developed a dashboard using Node.js and React to monitor and visualize business metrics in real time.</p>
+        <h3>Business Dashboard</h3>
+        <p>Developed a Node.js and React-based dashboard to visualize business metrics. Features include real-time data updates and charts.</p>
       </div>
-      <!-- Add additional project cards here -->
     </div>
   </section>
 
-  <!-- Skills Section -->
-  <section id="skills" class="skills animate" style="animation-delay: 1.1s;">
+  <section id="skills" class="skills">
     <h2 class="section-title">Skills</h2>
     <div class="skills-list">
       <div class="skill-item">Java</div>
@@ -189,13 +223,12 @@
     </div>
   </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="contact animate" style="animation-delay: 1.3s;">
-    <h2 class="section-title">Contact Me</h2>
-    <form action="mailto:developer.tk_kujwane@outlook.com" method="post" enctype="text/plain">
-      <input type="text" name="name" placeholder="Your Name" required>
-      <input type="email" name="email" placeholder="Your Email" required>
-      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+  <section id="contact" class="contact">
+    <h2 class="section-title">Contact</h2>
+    <form>
+      <input type="text" placeholder="Your Name" required />
+      <input type="email" placeholder="Your Email" required />
+      <textarea rows="5" placeholder="Your Message" required></textarea>
       <button type="submit">Send Message</button>
     </form>
   </section>
